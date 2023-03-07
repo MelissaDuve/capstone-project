@@ -11,5 +11,11 @@ export default function Home({ data, error }) {
 }
 
 const Heading = styled.h1`
+  position: sticky;
+  top: 0;
   text-align: center;
+  background: #82be81;
+  color: white;
+  padding: 18px 12px;
+  margin: 0;
 `;
