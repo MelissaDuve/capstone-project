@@ -1,11 +1,11 @@
 import CocktailsOverview from "@/components/CocktailsOverview/CocktailsOverview";
 import styled from "styled-components";
 
-export default function Home({ data, error }) {
+export default function Home() {
   return (
     <main>
       <Heading>🍸App name🍸</Heading>
-      <CocktailsOverview data={data} error={error} />
+      <CocktailsOverview />
     </main>
   );
 }

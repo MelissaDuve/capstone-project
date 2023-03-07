@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=cocktail";
 
-export default function CocktailsOverview({}) {
+export default function CocktailsOverview() {
   const fetcher = (URL) => fetch(URL).then((response) => response.json());
   const { data, error } = useSWR(URL, fetcher);
   const drinks = data?.drinks;
@@ -17,16 +17,14 @@ export default function CocktailsOverview({}) {
     <Container>
       <ul>
         {drinks?.map(({ idDrink, strDrink, strDrinkThumb }) => (
-          <ListItem>
-            <li key={idDrink}>
-              <h2>{strDrink}</h2>
-              <Image
-                src={strDrinkThumb}
-                alt={strDrink}
-                height={100}
-                width={100}
-              />
-            </li>
+          <ListItem key={idDrink}>
+            <h2>{strDrink}</h2>
+            <Image
+              src={strDrinkThumb}
+              alt={strDrink}
+              height={100}
+              width={100}
+            />
           </ListItem>
         ))}
       </ul>
@@ -36,7 +34,6 @@ export default function CocktailsOverview({}) {
 
 const Container = styled.div`
   display: flex;
-  align-items: ;
   justify-content: center;
   max-width: 340px;
 `;
