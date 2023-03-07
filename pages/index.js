@@ -1,4 +1,4 @@
-import CocktailsOverview from "@/components/Footer/CocktailsOverview/CocktailsOverview";
+import CocktailsOverview from "@/components/CocktailsOverview/CocktailsOverview";
 import styled from "styled-components";
 
 export default function Home({ data, error }) {
