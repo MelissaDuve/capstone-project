@@ -1,13 +1,21 @@
+import CocktailsOverview from "@/components/CocktailsOverview/CocktailsOverview";
 import styled from "styled-components";
 
 export default function Home() {
   return (
     <main>
-      <Heading>🐋Capstone Whales Template🐋</Heading>
+      <Heading>🍸App name🍸</Heading>
+      <CocktailsOverview />
     </main>
   );
 }
 
 const Heading = styled.h1`
-text-align: center;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  background: #82be81;
+  color: white;
+  padding: 18px 12px;
+  margin: 0;
 `;
