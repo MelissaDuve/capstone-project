@@ -9,7 +9,7 @@ export default function Home() {
       <ImageContainer>
         <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
         <ImageText>It's time for a Drink!</ImageText>
-        <Link href="/cocktailsPreview">
+        <Link href="/cocktailsPreview" legacyBehavior={true}>
           <StyledLink>Get started</StyledLink>
         </Link>
       </ImageContainer>
