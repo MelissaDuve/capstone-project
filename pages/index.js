@@ -10,7 +10,7 @@ export default function Home() {
         <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
         <ImageText>It's time for a Drink!</ImageText>
         <Link href="/cocktailsPreview" legacyBehavior={true}>
-          <StyledLink>Get started</StyledLink>
+          <StyledButton>Get started</StyledButton>
         </Link>
       </ImageContainer>
     </main>
@@ -33,7 +33,7 @@ const ImageText = styled.p`
   text-align: center;
 `;
 
-const StyledLink = styled.a`
+const StyledButton = styled.a`
   position: absolute;
   top: 35%;
   right: 4%;

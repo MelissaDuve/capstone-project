@@ -1,15 +1,10 @@
 /* eslint-disable react/jsx-key */
 import Image from "next/image";
-import useSWR from "swr";
+
 import styled from "styled-components";
+import Link from "next/link";
 
-const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=cocktail";
-
-export default function CocktailsOverview() {
-  const fetcher = (URL) => fetch(URL).then((response) => response.json());
-  const { data, error } = useSWR(URL, fetcher);
-  const drinks = data?.drinks;
-
+export default function CocktailsOverview({ data, error, drinks }) {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
@@ -19,12 +14,18 @@ export default function CocktailsOverview() {
         {drinks?.map(({ idDrink, strDrink, strDrinkThumb }) => (
           <ListItem key={idDrink}>
             <h2>{strDrink}</h2>
-            <Image
-              src={strDrinkThumb}
-              alt={strDrink}
-              height={100}
-              width={100}
-            />
+            <Link href={`/cocktailsPreview/${idDrink}`}>
+              <Image
+                src={strDrinkThumb}
+                alt={strDrink}
+                height={100}
+                width={100}
+                style={{
+                  borderRadius: "15%",
+                  border: "3px solid grey",
+                }}
+              />
+            </Link>
           </ListItem>
         ))}
       </ul>
