@@ -1,4 +1,5 @@
-import CocktailsOverview from "@/components/CocktailsOverview/CocktailsOverview";
+import CocktailsOverview from "@/components/CocktailsOverview";
+import Navigation from "@/components/Navigation";
 import styled from "styled-components";
 
 export default function CocktailsPreview({ data, error, drinks }) {
@@ -6,6 +7,7 @@ export default function CocktailsPreview({ data, error, drinks }) {
     <div>
       <Heading>🍸App name🍸</Heading>
       <CocktailsOverview data={data} error={error} drinks={drinks} />
+      <Navigation />
     </div>
   );
 }

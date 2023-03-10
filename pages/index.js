@@ -10,7 +10,7 @@ export default function Home() {
         <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
         <ImageText>It's time for a Drink!</ImageText>
         <Link href="/cocktailsPreview" legacyBehavior={true}>
-          <StyledButton>Get started</StyledButton>
+          <StyledButton>Get Started</StyledButton>
         </Link>
       </ImageContainer>
     </main>
@@ -24,7 +24,7 @@ const ImageContainer = styled.div`
 const ImageText = styled.p`
   position: absolute;
   top: 6%;
-  left: 40%;
+  left: 35%;
   color: #fc853a;
   font-family: serif;
   font-style: italic;
@@ -33,13 +33,27 @@ const ImageText = styled.p`
   text-align: center;
 `;
 
-const StyledButton = styled.a`
+const StyledButton = styled.button`
   position: absolute;
   top: 35%;
-  right: 4%;
-  border-radius: 30px;
-  font-size: 20px;
-  padding: 10px;
-  background-color: lightgrey;
-  font-weight: bold;
+  right: 2%;
+  border-radius: 40px;
+  color: white;
+  border: 1px solid black;
+  font-size: 15px;
+  padding: 12px;
+  background-color: #383838;
+
+  width: 140px;
+
+  font-weight: 100;
+
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  &:hover {
+    cursor: pointer;
+    background-color: #800000;
+    color: black;
+    font-weight: bold;
+    border: 1px solid grey;
+  }
 `;
