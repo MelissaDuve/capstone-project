@@ -1,17 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import styled from "styled-components";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/cocktailsPreview");
+  };
   return (
     <main>
       <ImageContainer>
         <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
         <ImageText>It's time for a Drink!</ImageText>
-        <Link href="/cocktailsPreview" legacyBehavior={true}>
-          <StyledButton>Get Started</StyledButton>
-        </Link>
+        <StyledButton onClick={handleClick}>Get Started</StyledButton>
       </ImageContainer>
     </main>
   );
