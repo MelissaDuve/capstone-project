@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import styled from "styled-components";
+import Navigation from "@/components/Navigation";
 
 export default function Cocktail({ drinks }) {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default function Cocktail({ drinks }) {
       <Head>
         <title>{strDrink}</title>
       </Head>
+
       <ImageStyle>
         <Image
           src={strDrinkThumb}
@@ -85,6 +87,7 @@ export default function Cocktail({ drinks }) {
           </li>
         )}
       </ul>
+      <Navigation />
     </>
   );
 }

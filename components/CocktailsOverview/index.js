@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import styled from "styled-components";
 import Link from "next/link";
+import Navigation from "../Navigation";
 
 export default function CocktailsOverview({ data, error, drinks }) {
   if (error) return <div>Failed to load</div>;
