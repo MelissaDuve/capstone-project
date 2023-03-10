@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import Image from "next/image";
+
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -36,6 +37,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   max-width: 340px;
+  margin-top: 70px;
+  margin-bottom: 60px;
 `;
 
 const ListItem = styled.li`

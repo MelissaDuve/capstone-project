@@ -13,10 +13,13 @@ export default function CocktailsPreview({ data, error, drinks }) {
 }
 
 const Heading = styled.h1`
-  position: sticky;
+  display: flex;
+  position: fixed;
   top: 0;
-  text-align: center;
-  background: #82be81;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  background-color: #82be81;
   color: white;
   padding: 18px 12px;
   margin: 0;
