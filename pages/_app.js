@@ -1,5 +1,6 @@
 import GlobalStyle from "@/styles";
 import Head from "next/head";
+
 import useSWR from "swr";
 
 const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=cocktail";
