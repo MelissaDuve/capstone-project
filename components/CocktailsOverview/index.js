@@ -6,12 +6,11 @@ import FavoriteButton from "../FavoriteButton";
 
 export default function CocktailsOverview({
   idDrink,
-  strDrink,
   onToggleFavorite,
   cocktailsInfo,
-  strDrinkThumb,
-  favorites,
   drinks,
+  handleUpdateFavorites,
+  favoritesstore,
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -45,7 +44,8 @@ export default function CocktailsOverview({
               idDrink={idDrink}
               onToggleFavorite={onToggleFavorite}
               cocktailsInfo={cocktailsInfo}
-              setIsFavorite={setIsFavorite}
+              onUpdateFavorites={handleUpdateFavorites}
+              favoritesstore={favoritesstore}
             />
           </ListItem>
         ))}

@@ -8,6 +8,7 @@ export default function CocktailsPreview({
   drinks,
   isFavorite,
   onToggleFavorite,
+  handleUpdateFavorites,
 }) {
   return (
     <div>
@@ -18,6 +19,7 @@ export default function CocktailsPreview({
         drinks={drinks}
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
+        handleUpdateFavorites={handleUpdateFavorites}
       />
       <Navigation />
     </div>

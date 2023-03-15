@@ -1,21 +1,11 @@
 import CocktailsOverview from "@/components/CocktailsOverview";
 import Navigation from "@/components/Navigation";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
+import Image from "next/image";
 
-export default function Favorites({
-  data,
-  onToggleFavorite,
-  cocktailsInfo,
-  setCocktailsInfo,
-  drinks,
-}) {
+export default function Favorites({ cocktailsInfo, favorite }) {
   const [favorites, setFavorites] = useLocalStorageState("favorites", []);
-
-  if (localStorage.getItem("favorites")) {
-    setFavorites(JSON.parse(localStorage.getItem("favorites")));
-  }
 
   const handleToggleFavorite = (idDrink) => {
     const updatedFavorites = favorites.map((fav) => {
@@ -25,21 +15,7 @@ export default function Favorites({
       }
       return fav;
     });
-
-    const updatedFavorite = updatedFavorites.find(
-      (fav) => fav.idDrink === idDrink
-    );
-
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     setFavorites(updatedFavorites);
-
-    const updatedCocktailsInfo = cocktailsInfo.map((info) => {
-      if (info.idDrink === idDrink) {
-        return { ...info, isFavorite: updatedFavorite.isFavorite };
-      }
-      return info;
-    });
-    setCocktailsInfo(updatedCocktailsInfo);
   };
 
   return (
@@ -47,37 +23,78 @@ export default function Favorites({
       <Header>
         <h3>Favorite Cocktails</h3>
       </Header>
-      <ul>
-        {favorites &&
-          favorites
-            .filter((param) => param)
-            .map(({ idDrink, strDrink, strDrinkThumb, isFavorite }) => {
-              return (
-                <li key={idDrink}>
-                  <CocktailsOverview
-                    idDrink={idDrink}
-                    strDrink={strDrink}
-                    onToggleFavorite={handleToggleFavorite}
-                    cocktailsInfo={cocktailsInfo}
-                    strDrinkThumb={strDrinkThumb}
-                    isFavorite={isFavorite}
-                  />
-                </li>
-              );
-            })}
-      </ul>
+      <Container>
+        <ul>
+          {favorites &&
+            favorites
+              // .filter((param) => param)
+              .map(({ idDrink, strDrink, strDrinkThumb }) => {
+                const isFavorite = favorites.find(
+                  (fav) => fav.idDrink === idDrink
+                )?.isFavorite;
+                const cocktailInfo = cocktailsInfo.find(
+                  (info) => info.idDrink === idDrink
+                );
 
+                return (
+                  <ListItem key={idDrink}>
+                    <CocktailsOverview
+                      idDrink={idDrink}
+                      strDrink={strDrink}
+                      onToggleFavorite={handleToggleFavorite}
+                      cocktailsInfo={cocktailsInfo}
+                      strDrinkThumb={strDrinkThumb}
+                      isFavorite={isFavorite}
+                      favorites={favorites}
+                      favorite={favorite}
+                    />
+
+                    <h3>Cocktail:{strDrink}</h3>
+                    <Image
+                      src={strDrinkThumb}
+                      alt={strDrink}
+                      height={100}
+                      width={100}
+                      style={{
+                        borderRadius: "15%",
+                        border: "3px solid grey",
+                      }}
+                    />
+                  </ListItem>
+                );
+              })}
+        </ul>
+      </Container>
       <Navigation />
     </>
   );
 }
 
 const Header = styled.h3`
-  margin: 0;
-  right: 0;
-  left: 0;
   display: flex;
   position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10px;
   background-color: darkgreen;
   justify-content: center;
+`;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 340px;
+  margin-top: 80px;
+  margin-bottom: 60px;
+`;
+
+const ListItem = styled.li`
+  list-style-type: none;
+  border-radius: 20px;
+  width: 200px;
+  border: 3px solid grey;
+  text-align: center;
+  padding: 0px 0px 10px 0px;
+  margin: 10px;
 `;
