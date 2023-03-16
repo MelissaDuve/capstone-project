@@ -87,6 +87,7 @@ export default function Cocktail({ drinks }) {
           </li>
         )}
       </ul>
+      <StyledBackButton onClick={() => router.back()}>Back</StyledBackButton>
       <Navigation />
     </>
   );
@@ -95,4 +96,15 @@ const ImageStyle = styled.div`
   display: flex;
   justify-content: center;
   margin: 10px;
+`;
+
+const StyledBackButton = styled.button`
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+  border-radius: 7px;
+  color: grey;
+  border: 1px solid black;
+  font-size: 15px;
+  width: 60px;
 `;

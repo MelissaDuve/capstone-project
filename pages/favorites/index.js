@@ -1,23 +1,100 @@
+import CocktailsOverview from "@/components/CocktailsOverview";
 import Navigation from "@/components/Navigation";
 import styled from "styled-components";
+import useLocalStorageState from "use-local-storage-state";
+import Image from "next/image";
 
-export default function Favorites() {
+export default function Favorites({ cocktailsInfo, favorite }) {
+  const [favorites, setFavorites] = useLocalStorageState("favorites", []);
+
+  const handleToggleFavorite = (idDrink) => {
+    const updatedFavorites = favorites.map((fav) => {
+      if (fav.idDrink === idDrink) {
+        const updatedFav = { ...fav, isFavorite: !fav.isFavorite };
+        return updatedFav;
+      }
+      return fav;
+    });
+    setFavorites(updatedFavorites);
+  };
+
   return (
     <>
       <Header>
         <h3>Favorite Cocktails</h3>
       </Header>
+      <Container>
+        <ul>
+          {favorites &&
+            favorites
+              // .filter((param) => param)
+              .map(({ idDrink, strDrink, strDrinkThumb }) => {
+                const isFavorite = favorites.find(
+                  (fav) => fav.idDrink === idDrink
+                )?.isFavorite;
+                const cocktailInfo = cocktailsInfo.find(
+                  (info) => info.idDrink === idDrink
+                );
+
+                return (
+                  <ListItem key={idDrink}>
+                    <CocktailsOverview
+                      idDrink={idDrink}
+                      strDrink={strDrink}
+                      onToggleFavorite={handleToggleFavorite}
+                      cocktailsInfo={cocktailsInfo}
+                      strDrinkThumb={strDrinkThumb}
+                      isFavorite={isFavorite}
+                      favorites={favorites}
+                      favorite={favorite}
+                    />
+
+                    <h3>Cocktail:{strDrink}</h3>
+                    <Image
+                      src={strDrinkThumb}
+                      alt={strDrink}
+                      height={100}
+                      width={100}
+                      style={{
+                        borderRadius: "15%",
+                        border: "3px solid grey",
+                      }}
+                    />
+                  </ListItem>
+                );
+              })}
+        </ul>
+      </Container>
       <Navigation />
     </>
   );
 }
 
 const Header = styled.h3`
-  margin: 0;
-  right: 0;
-  left: 0;
   display: flex;
   position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10px;
   background-color: darkgreen;
   justify-content: center;
+`;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 340px;
+  margin-top: 80px;
+  margin-bottom: 60px;
+`;
+
+const ListItem = styled.li`
+  list-style-type: none;
+  border-radius: 20px;
+  width: 200px;
+  border: 3px solid grey;
+  text-align: center;
+  padding: 0px 0px 10px 0px;
+  margin: 10px;
 `;

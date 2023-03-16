@@ -1,13 +1,25 @@
-/* eslint-disable react/jsx-key */
 import Image from "next/image";
-
 import styled from "styled-components";
 import Link from "next/link";
-import Navigation from "../Navigation";
+import { useEffect, useState } from "react";
+import FavoriteButton from "../FavoriteButton";
 
-export default function CocktailsOverview({ data, error, drinks }) {
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+export default function CocktailsOverview({
+  idDrink,
+  onToggleFavorite,
+  cocktailsInfo,
+  drinks,
+  handleUpdateFavorites,
+  favoritesstore,
+}) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const info = cocktailsInfo?.find((element) => element.idDrink === idDrink);
+  useEffect(() => {
+    if (info) {
+      setIsFavorite(info.isFavorite);
+    }
+  }, [info]);
 
   return (
     <Container>
@@ -27,6 +39,14 @@ export default function CocktailsOverview({ data, error, drinks }) {
                 }}
               />
             </Link>
+            <FavoriteButton
+              isFavorite={isFavorite}
+              idDrink={idDrink}
+              onToggleFavorite={onToggleFavorite}
+              cocktailsInfo={cocktailsInfo}
+              onUpdateFavorites={handleUpdateFavorites}
+              favoritesstore={favoritesstore}
+            />
           </ListItem>
         ))}
       </ul>
