@@ -6,6 +6,7 @@ export default function FavoriteButton({ onToggleFavorite, idDrink }) {
     JSON.parse(localStorage.getItem(idDrink)) || false
   );
 
+  //useEffect damit der neue Zustand erhalten bleibt nach reload.
   useEffect(() => {
     localStorage.setItem(idDrink, JSON.stringify(favorite));
   }, [idDrink, favorite]);

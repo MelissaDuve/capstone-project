@@ -4,7 +4,7 @@ import styled from "styled-components";
 import useLocalStorageState from "use-local-storage-state";
 import Image from "next/image";
 
-export default function Favorites({ cocktailsInfo, favorite }) {
+export default function Favorites({ cocktailsInfo, favorite, data }) {
   const [favorites, setFavorites] = useLocalStorageState("favorites", []);
 
   const handleToggleFavorite = (idDrink) => {
@@ -17,7 +17,7 @@ export default function Favorites({ cocktailsInfo, favorite }) {
     });
     setFavorites(updatedFavorites);
   };
-
+  console.log("fvorites", data);
   return (
     <>
       <Header>
@@ -26,16 +26,19 @@ export default function Favorites({ cocktailsInfo, favorite }) {
       <Container>
         <ul>
           {favorites &&
-            favorites
-              // .filter((param) => param)
+            data.drinks
+              .filter((entry) => {
+                return favorites.includes(entry.idDrink);
+              })
               .map(({ idDrink, strDrink, strDrinkThumb }) => {
-                const isFavorite = favorites.find(
-                  (fav) => fav.idDrink === idDrink
-                )?.isFavorite;
-                const cocktailInfo = cocktailsInfo.find(
-                  (info) => info.idDrink === idDrink
-                );
-
+                // .filter((param) => param)
+                // .map(({ idDrink, strDrink, strDrinkThumb }) => {
+                //   const isFavorite = favorites.find(
+                //     (fav) => fav.idDrink === idDrink
+                //   )?.isFavorite;
+                //   const cocktailInfo = cocktailsInfo.find(
+                //     (info) => info.idDrink === idDrink
+                //   );
                 return (
                   <ListItem key={idDrink}>
                     <CocktailsOverview
@@ -44,7 +47,7 @@ export default function Favorites({ cocktailsInfo, favorite }) {
                       onToggleFavorite={handleToggleFavorite}
                       cocktailsInfo={cocktailsInfo}
                       strDrinkThumb={strDrinkThumb}
-                      isFavorite={isFavorite}
+                      isFavorite={true}
                       favorites={favorites}
                       favorite={favorite}
                     />
