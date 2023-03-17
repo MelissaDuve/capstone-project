@@ -55,5 +55,7 @@ const HeartIcon = styled.svg`
 `;
 
 const HeartPath = styled.path`
+  width: 24px;
+  height: 24px;
   fill: ${({ favorite }) => (favorite ? "red" : "grey")}; ;
 `;

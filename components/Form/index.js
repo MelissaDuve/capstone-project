@@ -65,7 +65,7 @@ export default function MyForm() {
           </form>
 
           <div>
-            <h2>Form List:</h2>
+            <h2>Comments:</h2>
             {formList.length > 0 ? (
               <ul>
                 {formList.map((form, index) => (
@@ -77,7 +77,7 @@ export default function MyForm() {
                 ))}
               </ul>
             ) : (
-              <p>No forms submitted yet</p>
+              <p>No forms submitted yet.</p>
             )}
           </div>
         </div>
