@@ -88,7 +88,7 @@ export default function Cocktail({ drinks }) {
           </li>
         )}
       </ul>
-      <Form />
+      <Form idDrink={idDrink} />
       <StyledBackButton onClick={() => router.back()}>Back</StyledBackButton>
       <Navigation />
     </>

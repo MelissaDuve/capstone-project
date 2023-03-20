@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
-export default function Form({}) {
+export default function Form({ idDrink }) {
   const [name, setName] = useState();
   const [date, setDate] = useState();
   const [comment, setComment] = useState();
@@ -9,7 +9,7 @@ export default function Form({}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = { name, date, comment };
+    const formData = { name, date, comment, idDrink };
 
     const forms = JSON.parse(localStorage.getItem("forms")) || [];
     localStorage.setItem("forms", JSON.stringify([...forms, formData]));
@@ -68,18 +68,20 @@ export default function Form({}) {
 
           <div>
             <h3>Comments:</h3>
-            {formList.length > 0 ? (
+            {formList.some((form) => form.idDrink === idDrink) ? (
               <ul>
-                {formList.map((form, index) => (
-                  <li key={index}>
-                    <p>Name: {form.name}</p>
-                    <p>Date: {form.date}</p>
-                    <p>Comment: {form.comment}</p>
-                  </li>
-                ))}
+                {formList
+                  .filter((form) => form.idDrink === idDrink)
+                  .map((form, index) => (
+                    <li key={index}>
+                      <p>Name: {form.name}</p>
+                      <p>Date: {form.date}</p>
+                      <p>Comment: {form.comment}</p>
+                    </li>
+                  ))}
               </ul>
             ) : (
-              <p>No forms submitted yet.</p>
+              <p>No comments submitted yet.</p>
             )}
           </div>
         </div>
