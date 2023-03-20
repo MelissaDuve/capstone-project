@@ -17,7 +17,7 @@ export default function Favorites({ cocktailsInfo, favorite, data }) {
     });
     setFavorites(updatedFavorites);
   };
-  console.log("favorites", data);
+
   return (
     <>
       <Header>
@@ -31,14 +31,6 @@ export default function Favorites({ cocktailsInfo, favorite, data }) {
                 return favorites.includes(entry.idDrink);
               })
               .map(({ idDrink, strDrink, strDrinkThumb }) => {
-                // .filter((param) => param)
-                // .map(({ idDrink, strDrink, strDrinkThumb }) => {
-                //   const isFavorite = favorites.find(
-                //     (fav) => fav.idDrink === idDrink
-                //   )?.isFavorite;
-                //   const cocktailInfo = cocktailsInfo.find(
-                //     (info) => info.idDrink === idDrink
-                //   );
                 return (
                   <ListItem key={idDrink}>
                     <CocktailsOverview

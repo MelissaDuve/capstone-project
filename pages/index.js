@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import { CldImage } from "next-cloudinary";
 
 export default function Home() {
   const router = useRouter();
@@ -11,18 +10,9 @@ export default function Home() {
   };
   return (
     <main>
-      {/* <ImageContainer> */}
       <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
       <ImageText>It's time for a Drink!</ImageText>
       <StyledButton onClick={handleClick}>Get Started</StyledButton>
-      {/* </ImageContainer> */}
-      {/* <CldImage
-        width="960"
-        height="600"
-        src="/cld-sample-4.jpg"
-        sizes="100vw"
-        alt="yummy food"
-      /> */}
     </main>
   );
 }
