@@ -17,7 +17,7 @@ export default function Favorites({ cocktailsInfo, favorite, data }) {
     });
     setFavorites(updatedFavorites);
   };
-  console.log("fvorites", data);
+  console.log("favorites", data);
   return (
     <>
       <Header>

@@ -102,7 +102,7 @@ const ImageStyle = styled.div`
 
 const StyledBackButton = styled.button`
   position: absolute;
-  bottom: 10%;
+  bottom: 50%;
   right: 2%;
   border-radius: 7px;
   color: grey;

@@ -1,17 +1,7 @@
 import styled from "styled-components";
-
-// export default function Form() {
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     const forData = new FormData(event.target);
-// const data = Object.fromEntries(formData);
-
-// event.target.elements.Name.focus;
-// event.target.reset;
-//   }
 import { useEffect, useState } from "react";
 
-export default function MyForm() {
+export default function Form({}) {
   const [name, setName] = useState();
   const [date, setDate] = useState();
   const [comment, setComment] = useState();
@@ -20,6 +10,7 @@ export default function MyForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = { name, date, comment };
+
     const forms = JSON.parse(localStorage.getItem("forms")) || [];
     localStorage.setItem("forms", JSON.stringify([...forms, formData]));
     setFormList([...forms, formData]);
@@ -37,35 +28,46 @@ export default function MyForm() {
       <Container>
         <div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Name"
-              onChange={(event) => setName(event.target.value)}
-            />
+            <fieldset>
+              <br />
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                required
+                style={{ width: "125px", height: "20px" }}
+                onChange={(event) => setName(event.target.value)}
+              />
 
-            <label htmlFor="date">Date:</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              onChange={(event) => setDate(event.target.value)}
-            />
-
-            <label htmlFor="comment">Your comment:</label>
-            <textarea
-              id="comment"
-              name="comment"
-              onChange={(event) => setComment(event.target.value)}
-            />
+              <label htmlFor="date"> Date:</label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                required
+                onChange={(event) => setDate(event.target.value)}
+              />
+              <br />
+              <br />
+              <label htmlFor="comment">Comment:</label>
+              <br />
+              <textarea
+                id="comment"
+                name="comment"
+                required
+                maxLength={50}
+                style={{ width: "340px", height: "70px" }}
+                onChange={(event) => setComment(event.target.value)}
+              />
+            </fieldset>
 
             <button type="submit">Submit</button>
           </form>
 
           <div>
-            <h2>Comments:</h2>
+            <h3>Comments:</h3>
             {formList.length > 0 ? (
               <ul>
                 {formList.map((form, index) => (
@@ -87,7 +89,6 @@ export default function MyForm() {
 }
 const Container = styled.div`
   display: flex;
-
   margin-top: 80px;
   margin-bottom: 80px;
 `;
