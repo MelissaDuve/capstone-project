@@ -10,11 +10,9 @@ export default function Home() {
   };
   return (
     <main>
-      <ImageContainer>
-        <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
-        <ImageText>It's time for a Drink!</ImageText>
-        <StyledButton onClick={handleClick}>Get Started</StyledButton>
-      </ImageContainer>
+      <img src="/mycocktail.jpg" alt="My-Image" height="730" width="410" />
+      <ImageText>It's time for a Drink!</ImageText>
+      <StyledButton onClick={handleClick}>Get Started</StyledButton>
     </main>
   );
 }

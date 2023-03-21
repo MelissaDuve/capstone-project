@@ -6,6 +6,7 @@ export default function FavoriteButton({ onToggleFavorite, idDrink }) {
     JSON.parse(localStorage.getItem(idDrink)) || false
   );
 
+  //useEffect damit der neue Zustand erhalten bleibt nach reload.
   useEffect(() => {
     localStorage.setItem(idDrink, JSON.stringify(favorite));
   }, [idDrink, favorite]);
@@ -54,5 +55,7 @@ const HeartIcon = styled.svg`
 `;
 
 const HeartPath = styled.path`
+  width: 24px;
+  height: 24px;
   fill: ${({ favorite }) => (favorite ? "red" : "grey")}; ;
 `;

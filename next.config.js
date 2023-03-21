@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: { scrollRestoration: true },
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
@@ -10,6 +11,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "www.thecocktaildb.com",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
       },
     ],
   },

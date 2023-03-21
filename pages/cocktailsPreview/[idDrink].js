@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import styled from "styled-components";
 import Navigation from "@/components/Navigation";
+import Form from "@/components/Form";
 
 export default function Cocktail({ drinks }) {
   const router = useRouter();
@@ -87,6 +88,7 @@ export default function Cocktail({ drinks }) {
           </li>
         )}
       </ul>
+      <Form idDrink={idDrink} />
       <StyledBackButton onClick={() => router.back()}>Back</StyledBackButton>
       <Navigation />
     </>
@@ -100,7 +102,7 @@ const ImageStyle = styled.div`
 
 const StyledBackButton = styled.button`
   position: absolute;
-  bottom: 10%;
+  bottom: 50%;
   right: 2%;
   border-radius: 7px;
   color: grey;
