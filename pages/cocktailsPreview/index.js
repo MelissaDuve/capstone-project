@@ -37,7 +37,7 @@ const Heading = styled.h1`
   justify-content: center;
   background-color: #708090;
   color: black;
-  padding: 21px 12px;
+  padding: 13px 12px;
   margin: 0;
   border-bottom: 8px solid #b9137c;
   font-family: fasthand;

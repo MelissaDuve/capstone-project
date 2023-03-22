@@ -58,7 +58,7 @@ const Navbar = styled.nav`
   justify-content: space-around;
   align-items: center;
   padding: 0 20px;
-  height: 90px;
+  height: 75px;
   font-size: 20px;
   border-top: 8px solid #b9137c;
 `;

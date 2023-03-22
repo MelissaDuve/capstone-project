@@ -24,6 +24,11 @@ export default function Form({ idDrink }) {
     setFormList(forms);
   }, []);
 
+  function handleDelete(id) {
+    const updatedFormList = formList.filter((form) => form.id !== id);
+    setFormList(updatedFormList);
+    localStorage.setItem("forms", JSON.stringify(updatedFormList));
+  }
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -73,6 +78,7 @@ export default function Form({ idDrink }) {
                   <p>Name: {form.name}</p>
                   <p>Date: {form.date}</p>
                   <p>Comment: {form.comment}</p>
+                  <button onClick={() => handleDelete(form.id)}>x</button>
                 </li>
               ))}
           </ul>
