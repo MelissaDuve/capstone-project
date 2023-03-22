@@ -22,22 +22,25 @@ export default function CocktailsOverview({
   }, [info]);
 
   return (
-    <Container>
-      <ul>
+    <>
+      <StyledIntro>
+        <p>Get inspired with our most popular cocktails: </p>
+      </StyledIntro>
+      <Container>
         {drinks?.map(({ idDrink, strDrink, strDrinkThumb }) => (
           <ListItem key={idDrink}>
-            <h2>{strDrink}</h2>
             <Link href={`/cocktailsPreview/${idDrink}`}>
               <Image
                 src={strDrinkThumb}
                 alt={strDrink}
-                height={100}
-                width={100}
+                height={95}
+                width={95}
                 style={{
                   borderRadius: "15%",
                   border: "3px solid grey",
                 }}
               />
+              <h5>{strDrink}</h5>
             </Link>
             <FavoriteButton
               isFavorite={isFavorite}
@@ -49,24 +52,52 @@ export default function CocktailsOverview({
             />
           </ListItem>
         ))}
-      </ul>
-    </Container>
+      </Container>
+    </>
   );
 }
 
-const Container = styled.div`
+const Container = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  max-width: 340px;
-  margin-top: 70px;
-  margin-bottom: 60px;
+  margin-top: 90px;
+  margin-bottom: 70px;
+  padding-left: 0;
 `;
 
 const ListItem = styled.li`
+  display: inline-block;
+  width: 40%;
+  height: 180px;
   list-style-type: none;
   border-radius: 20px;
   border: 3px solid grey;
   text-align: center;
-  padding: 0px 0px 10px 0px;
+  padding: 10px;
   margin: 10px;
+  background-color: rgba(140, 153, 166, 0.6);
+  h5 {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: black;
+  }
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(211, 217, 222, 0.8);
+    color: black;
+    font-weight: bold;
+    border: 1px solid grey;
+  }
+`;
+const StyledIntro = styled.p`
+  padding: 80px;
+  padding-left: 34px;
+  padding-bottom: 0px;
+  height: 10px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 17px;
+  color: darkgrey;
 `;

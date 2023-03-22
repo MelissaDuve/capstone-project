@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { uid } from "react-uid";
 
 export default function Form({ idDrink }) {
   const [name, setName] = useState();
@@ -9,8 +10,8 @@ export default function Form({ idDrink }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = { name, date, comment, idDrink };
-
+    const id = uid(event);
+    const formData = { name, date, comment, idDrink, id };
     const forms = JSON.parse(localStorage.getItem("forms")) || [];
     localStorage.setItem("forms", JSON.stringify([...forms, formData]));
     setFormList([...forms, formData]);
@@ -23,6 +24,11 @@ export default function Form({ idDrink }) {
     setFormList(forms);
   }, []);
 
+  function handleDelete(id) {
+    const updatedFormList = formList.filter((form) => form.id !== id);
+    setFormList(updatedFormList);
+    localStorage.setItem("forms", JSON.stringify(updatedFormList));
+  }
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -72,6 +78,7 @@ export default function Form({ idDrink }) {
                   <p>Name: {form.name}</p>
                   <p>Date: {form.date}</p>
                   <p>Comment: {form.comment}</p>
+                  <button onClick={() => handleDelete(form.id)}>x</button>
                 </li>
               ))}
           </ul>
@@ -82,6 +89,7 @@ export default function Form({ idDrink }) {
     </Container>
   );
 }
+console.log("yess");
 const Container = styled.section`
   display: flex;
   flex-direction: column;

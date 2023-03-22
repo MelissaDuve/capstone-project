@@ -33,7 +33,7 @@ export default function Favorites({ cocktailsInfo, favorite, data }) {
               .map(({ idDrink, strDrink, strDrinkThumb }) => {
                 return (
                   <ListItem key={idDrink}>
-                    <CocktailsOverview
+                    {/* <CocktailsOverview
                       idDrink={idDrink}
                       strDrink={strDrink}
                       onToggleFavorite={handleToggleFavorite}
@@ -42,7 +42,7 @@ export default function Favorites({ cocktailsInfo, favorite, data }) {
                       isFavorite={true}
                       favorites={favorites}
                       favorite={favorite}
-                    />
+                    /> */}
                     <HeartIcon viewBox="0 0 24 24">
                       <HeartPath
                         favorite={favorite}
@@ -97,6 +97,11 @@ const ListItem = styled.li`
   text-align: center;
   padding: 0px 0px 10px 0px;
   margin: 10px;
+  position: relative;
+  padding-left: 0;
+  h3 {
+    margin-top: 40px;
+  }
 `;
 const HeartPath = styled.path`
   width: 24px;
@@ -105,6 +110,9 @@ const HeartPath = styled.path`
 `;
 
 const HeartIcon = styled.svg`
+  position: absolute;
+  top: 8px;
+  transform: translateX(-40%);
   width: 24px;
   height: 24px;
   fill: ${({ favorite }) => (favorite ? "red" : "grey")};
