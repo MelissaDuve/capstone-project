@@ -25,7 +25,7 @@ const ImageText = styled.p`
   position: absolute;
   top: 6%;
   left: 35%;
-  color: #fc853a;
+  color: #b9137c;
   font-family: serif;
   font-style: italic;
   font-size: 40px;
@@ -49,7 +49,7 @@ const StyledButton = styled.button`
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   &:hover {
     cursor: pointer;
-    background-color: #800000;
+    background-color: #a2116d;
     color: black;
     font-weight: bold;
     border: 1px solid grey;

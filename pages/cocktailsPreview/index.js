@@ -12,15 +12,17 @@ export default function CocktailsPreview({
 }) {
   return (
     <div>
-      <Heading>🍸App name🍸</Heading>
-      <CocktailsOverview
-        data={data}
-        error={error}
-        drinks={drinks}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-        handleUpdateFavorites={handleUpdateFavorites}
-      />
+      <Background>
+        <Heading>Shake it!</Heading>
+        <CocktailsOverview
+          data={data}
+          error={error}
+          drinks={drinks}
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+          handleUpdateFavorites={handleUpdateFavorites}
+        />
+      </Background>
       <Navigation />
     </div>
   );
@@ -33,8 +35,20 @@ const Heading = styled.h1`
   left: 0;
   right: 0;
   justify-content: center;
-  background-color: #82be81;
-  color: white;
-  padding: 18px 12px;
+  background-color: #708090;
+  color: black;
+  padding: 21px 12px;
   margin: 0;
+  border-bottom: 8px solid #b9137c;
+  font-family: fasthand;
+  font-style: italic;
+  font-size: 42px;
+  font-weight: bold;
+`;
+const Background = styled.p`
+  background-image: url("/drops.jpg");
+  height: 2850px;
+  width: 400px;
+  background-position: center;
+  background-size: cover;
 `;

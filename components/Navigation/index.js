@@ -54,10 +54,11 @@ const Navbar = styled.nav`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #82be81;
+  background-color: #708090;
   justify-content: space-around;
   align-items: center;
   padding: 0 20px;
-  height: 60px;
+  height: 90px;
   font-size: 20px;
+  border-top: 8px solid #b9137c;
 `;

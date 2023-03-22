@@ -51,11 +51,11 @@ const FavoriteWrapper = styled.div`
 const HeartIcon = styled.svg`
   width: 24px;
   height: 24px;
-  fill: ${({ favorite }) => (favorite ? "red" : "grey")};
+  fill: ${({ favorite }) => (favorite ? "#b9137c" : "f2f2f2")};
 `;
 
 const HeartPath = styled.path`
   width: 24px;
   height: 24px;
-  fill: ${({ favorite }) => (favorite ? "red" : "grey")}; ;
+  fill: ${({ favorite }) => (favorite ? "#b9137c" : "f2f2f2")}; ;
 `;
