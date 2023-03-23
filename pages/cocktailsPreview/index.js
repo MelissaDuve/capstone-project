@@ -47,8 +47,6 @@ const Heading = styled.h1`
 `;
 const Background = styled.p`
   background-image: url("/drops.jpg");
-  height: 2850px;
-  width: 400px;
   background-position: center;
   background-size: cover;
 `;

@@ -6,7 +6,13 @@ import { useRouter } from "next/router";
 export default function Home() {
   const router = useRouter();
   const handleClick = () => {
-    router.push("/cocktailsPreview");
+    const result = confirm("Are you 18 or older?");
+    if (result) {
+      alert("Great! You can access the content.");
+      router.push("/cocktailsPreview");
+    } else {
+      alert("Sorry, you must be at least 18 years old to access this content.");
+    }
   };
   return (
     <main>

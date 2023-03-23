@@ -36,60 +36,61 @@ export default function Cocktail({ drinks }) {
   } = currentCocktail;
   return (
     <>
-      <Head>
-        <title>{strDrink}</title>
-      </Head>
-
-      <ImageStyle>
-        <Image
-          src={strDrinkThumb}
-          alt={strDrink}
-          height={300}
-          width={300}
-          style={{
-            borderRadius: "15%",
-          }}
-        />
-      </ImageStyle>
-      <h2>{strDrink}</h2>
-      <p>{strInstructions}</p>
-      <div>
-        <strong>Ingredients:</strong>
-      </div>
-      <ul>
-        {strIngredient1 && (
-          <li>
-            {strMeasure1} {strIngredient1}
-          </li>
-        )}
-        {strIngredient2 && (
-          <li>
-            {strMeasure2} {strIngredient2}
-          </li>
-        )}
-        {strIngredient3 && (
-          <li>
-            {strMeasure3} {strIngredient3}
-          </li>
-        )}
-        {strIngredient4 && (
-          <li>
-            {strMeasure4} {strIngredient4}
-          </li>
-        )}
-        {strIngredient5 && (
-          <li>
-            {strMeasure5} {strIngredient5}
-          </li>
-        )}
-        {strIngredient6 && (
-          <li>
-            {strMeasure6} {strIngredient6}
-          </li>
-        )}
-      </ul>
-      <Form idDrink={idDrink} />
-      <StyledBackButton onClick={() => router.back()}>Back</StyledBackButton>
+      <Background>
+        <Head>
+          <title>{strDrink}</title>
+        </Head>
+        <ImageStyle>
+          <Image
+            src={strDrinkThumb}
+            alt={strDrink}
+            height={300}
+            width={300}
+            style={{
+              borderRadius: "15%",
+            }}
+          />
+        </ImageStyle>
+        <h2>{strDrink}</h2>
+        <p>{strInstructions}</p>
+        <div>
+          <strong>Ingredients:</strong>
+        </div>
+        <ul>
+          {strIngredient1 && (
+            <li>
+              {strMeasure1} {strIngredient1}
+            </li>
+          )}
+          {strIngredient2 && (
+            <li>
+              {strMeasure2} {strIngredient2}
+            </li>
+          )}
+          {strIngredient3 && (
+            <li>
+              {strMeasure3} {strIngredient3}
+            </li>
+          )}
+          {strIngredient4 && (
+            <li>
+              {strMeasure4} {strIngredient4}
+            </li>
+          )}
+          {strIngredient5 && (
+            <li>
+              {strMeasure5} {strIngredient5}
+            </li>
+          )}
+          {strIngredient6 && (
+            <li>
+              {strMeasure6} {strIngredient6}
+            </li>
+          )}
+        </ul>
+        <Form idDrink={idDrink} />
+        <StyledBackButton onClick={() => router.back()}>Back</StyledBackButton>
+      </Background>
       <Navigation />
     </>
   );
@@ -97,7 +98,7 @@ export default function Cocktail({ drinks }) {
 const ImageStyle = styled.div`
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin: 0px;
 `;
 
 const StyledBackButton = styled.button`
@@ -109,4 +110,10 @@ const StyledBackButton = styled.button`
   border: 1px solid black;
   font-size: 15px;
   width: 60px;
+`;
+
+const Background = styled.p`
+  background-image: url("/color.jpg");
+  background-position: center;
+  background-size: cover;
 `;

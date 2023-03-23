@@ -7,6 +7,8 @@ export default function Form({ idDrink }) {
   const [date, setDate] = useState();
   const [comment, setComment] = useState();
   const [formList, setFormList] = useState([]);
+  const [editingText, setEditingText] = useState();
+  const [editingId, setEditingId] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,9 +28,28 @@ export default function Form({ idDrink }) {
 
   function handleDelete(id) {
     const updatedFormList = formList.filter((form) => form.id !== id);
-    setFormList(updatedFormList);
     localStorage.setItem("forms", JSON.stringify(updatedFormList));
+    alert("Successfully deleted!");
+    setFormList(updatedFormList);
   }
+
+  // function handleEdit(id) {
+  //   const formToEdit = formList.find((form) => form.id === id);
+  //   setName(formToEdit.name);
+  //   setDate(formToEdit.date);
+  //   setComment(formToEdit.comment);
+  //   setEditingText(id);
+  // }
+
+  //   localStorage.setItem("forms", JSON.stringify(updatedFormList));
+  //   alert("Successfully edited!");
+  //   setFormList(updatedFormList);
+  //   setEditingText(null);
+  //   setName("");
+  //   setDate("");
+  //   setComment("");
+  // }
+
   return (
     <Container>
       <form onSubmit={handleSubmit}>
@@ -58,7 +79,7 @@ export default function Form({ idDrink }) {
             id="comment"
             name="comment"
             required
-            maxLength={50}
+            maxLength={200}
             style={{ width: "340px", height: "70px" }}
             onChange={(event) => setComment(event.target.value)}
           />
@@ -77,8 +98,12 @@ export default function Form({ idDrink }) {
                 <li key={index}>
                   <p>Name: {form.name}</p>
                   <p>Date: {form.date}</p>
-                  <p>Comment: {form.comment}</p>
-                  <button onClick={() => handleDelete(form.id)}>x</button>
+                  <StyledComment>
+                    <p>Comment: {form.comment}</p>
+                  </StyledComment>
+                  <button type="button" onClick={() => handleDelete(form.id)}>
+                    x
+                  </button>
                 </li>
               ))}
           </ul>
@@ -89,10 +114,15 @@ export default function Form({ idDrink }) {
     </Container>
   );
 }
-console.log("yess");
+
 const Container = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 80px;
   margin-bottom: 80px;
 `;
+const StyledComment = styled.p`
+  white-space: pre-wrap;
+`;
+// const StyledDeleteButton = styled.button`
+// `;

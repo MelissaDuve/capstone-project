@@ -61,9 +61,10 @@ const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 90px;
-  margin-bottom: 70px;
+  margin-top: 80px;
+  margin-bottom: 75px;
   padding-left: 0;
+  min-height: 100vh;
 `;
 
 const ListItem = styled.li`
