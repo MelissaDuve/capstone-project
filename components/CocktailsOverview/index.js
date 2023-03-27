@@ -49,6 +49,7 @@ export default function CocktailsOverview({
               cocktailsInfo={cocktailsInfo}
               onUpdateFavorites={handleUpdateFavorites}
               favoritesstore={favoritesstore}
+              isFavoriteNew={favoritesstore.includes(idDrink)}
             />
           </ListItem>
         ))}

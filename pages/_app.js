@@ -56,6 +56,7 @@ export default function App({ Component, pageProps }) {
         onToggleFavorite={handleToggleFavorite}
         cocktailsInfo={cocktailsInfo}
         favoritesstore={favoritesstore}
+        setFavoritesstore={setFavoritesstore}
         handleUpdateFavorites={handleUpdateFavorites}
       />
     </>

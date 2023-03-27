@@ -42,15 +42,7 @@ export default function Cocktail({ drinks }) {
           <title>{strDrink}</title>
         </Head>
         <ImageStyle>
-          <Image
-            src={strDrinkThumb}
-            alt={strDrink}
-            height={200}
-            width={200}
-            // style={{
-            //   borderRadius: "15%",
-            // }}
-          />
+          <Image src={strDrinkThumb} alt={strDrink} height={200} width={200} />
         </ImageStyle>
 
         <p>{strInstructions}</p>

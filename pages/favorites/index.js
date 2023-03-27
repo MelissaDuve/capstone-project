@@ -1,17 +1,21 @@
 import Navigation from "@/components/Navigation";
 import styled from "styled-components";
-import useLocalStorageState from "use-local-storage-state";
 import Image from "next/image";
 import FavoriteButton from "@/components/FavoriteButton";
 
-export default function Favorites({ cocktailsInfo, data }) {
-  const [favorites, setFavorites] = useLocalStorageState("favorites", []);
-
+export default function Favorites({
+  cocktailsInfo,
+  data,
+  favoritesstore,
+  setFavoritesstore,
+}) {
   const toggleFavorite = (idDrink, isFavorite) => {
     if (isFavorite) {
-      setFavorites([...favorites, idDrink]);
+      setFavoritesstore([...favoritesstore, idDrink]);
     } else {
-      setFavorites(favorites.filter((favorite) => favorite !== idDrink));
+      setFavoritesstore(
+        favoritesstore.filter((favorite) => favorite !== idDrink)
+      );
     }
   };
 
@@ -22,10 +26,10 @@ export default function Favorites({ cocktailsInfo, data }) {
       </Header>
       <Container>
         <ul>
-          {favorites &&
+          {favoritesstore &&
             data.drinks
               .filter((entry) => {
-                return favorites.includes(entry.idDrink);
+                return favoritesstore.includes(entry.idDrink);
               })
               .map(({ idDrink, strDrink, strDrinkThumb }) => {
                 return (
@@ -33,6 +37,7 @@ export default function Favorites({ cocktailsInfo, data }) {
                     <FavoriteButton
                       idDrink={idDrink}
                       onToggleFavorite={toggleFavorite}
+                      isFavoriteNew={favoritesstore.includes(idDrink)}
                     />
                     <h3>Cocktail:{strDrink}</h3>
                     <Image
