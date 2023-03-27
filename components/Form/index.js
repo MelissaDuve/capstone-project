@@ -7,8 +7,8 @@ export default function Form({ idDrink }) {
   const [date, setDate] = useState();
   const [comment, setComment] = useState();
   const [formList, setFormList] = useState([]);
-  const [editingText, setEditingText] = useState();
-  const [editingId, setEditingId] = useState(null);
+  // const [editingText, setEditingText] = useState();
+  // const [editingId, setEditingId] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
