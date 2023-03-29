@@ -24,7 +24,7 @@ export default function CocktailsOverview({
   return (
     <>
       <StyledIntro>
-        <p>Get inspired with our most popular cocktails: </p>
+        <h2>Get inspired with our most popular cocktails: </h2>
       </StyledIntro>
       <Container>
         {drinks?.map(({ idDrink, strDrink, strDrinkThumb }) => (
@@ -49,6 +49,7 @@ export default function CocktailsOverview({
               cocktailsInfo={cocktailsInfo}
               onUpdateFavorites={handleUpdateFavorites}
               favoritesstore={favoritesstore}
+              isFavoriteNew={favoritesstore.includes(idDrink)}
             />
           </ListItem>
         ))}
@@ -61,20 +62,21 @@ const Container = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 90px;
-  margin-bottom: 70px;
+  margin-top: 80px;
+  margin-bottom: 75px;
   padding-left: 0;
+  min-height: 100vh;
 `;
 
 const ListItem = styled.li`
   display: inline-block;
   width: 40%;
-  height: 180px;
+  height: 185px;
   list-style-type: none;
   border-radius: 20px;
   border: 3px solid grey;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   margin: 10px;
   background-color: rgba(140, 153, 166, 0.6);
   h5 {
@@ -91,13 +93,13 @@ const ListItem = styled.li`
     border: 1px solid grey;
   }
 `;
-const StyledIntro = styled.p`
+const StyledIntro = styled.div`
   padding: 80px;
   padding-left: 34px;
   padding-bottom: 0px;
   height: 10px;
   font-weight: bold;
   font-style: italic;
-  font-size: 17px;
+  font-size: 12px;
   color: darkgrey;
 `;

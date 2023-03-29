@@ -9,7 +9,7 @@ export default function Navigation() {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 1024 1024"
             height="1em"
             width="1em"
@@ -22,7 +22,7 @@ export default function Navigation() {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 1024 1024"
             height="1em"
             width="1em"
@@ -35,7 +35,7 @@ export default function Navigation() {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 1024 1024"
             height="1em"
             width="1em"
@@ -58,7 +58,7 @@ const Navbar = styled.nav`
   justify-content: space-around;
   align-items: center;
   padding: 0 20px;
-  height: 75px;
+  height: 80px;
   font-size: 20px;
   border-top: 8px solid #b9137c;
 `;

@@ -9,6 +9,8 @@ export default function CocktailsPreview({
   isFavorite,
   onToggleFavorite,
   handleUpdateFavorites,
+  favoritesstore,
+  setFavoritesstore,
 }) {
   return (
     <div>
@@ -21,6 +23,8 @@ export default function CocktailsPreview({
           isFavorite={isFavorite}
           onToggleFavorite={onToggleFavorite}
           handleUpdateFavorites={handleUpdateFavorites}
+          favoritesstore={favoritesstore}
+          setFavoritesstore={setFavoritesstore}
         />
       </Background>
       <Navigation />
@@ -45,10 +49,8 @@ const Heading = styled.h1`
   font-size: 42px;
   font-weight: bold;
 `;
-const Background = styled.p`
+const Background = styled.div`
   background-image: url("/drops.jpg");
-  height: 2850px;
-  width: 400px;
   background-position: center;
   background-size: cover;
 `;
