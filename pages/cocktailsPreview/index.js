@@ -49,7 +49,7 @@ const Heading = styled.h1`
   font-size: 42px;
   font-weight: bold;
 `;
-const Background = styled.p`
+const Background = styled.div`
   background-image: url("/drops.jpg");
   background-position: center;
   background-size: cover;

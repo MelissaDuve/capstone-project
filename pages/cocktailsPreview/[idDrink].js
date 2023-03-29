@@ -4,7 +4,6 @@ import Image from "next/image";
 import styled from "styled-components";
 import Navigation from "@/components/Navigation";
 import Form from "@/components/Form";
-import FavoriteButton from "@/components/FavoriteButton";
 
 export default function Cocktail({ drinks }) {
   const router = useRouter();
@@ -41,48 +40,59 @@ export default function Cocktail({ drinks }) {
         <Head>
           <title>{strDrink}</title>
         </Head>
-        <ImageStyle>
-          <Image src={strDrinkThumb} alt={strDrink} height={200} width={200} />
-        </ImageStyle>
+        <Container>
+          <ImageStyle>
+            <Image
+              src={strDrinkThumb}
+              alt={strDrink}
+              height={150}
+              width={150}
+            />
+          </ImageStyle>
 
-        <p>{strInstructions}</p>
-        <div>
-          <strong>Ingredients:</strong>
-        </div>
-        <ul>
-          {strIngredient1 && (
-            <li>
-              {strMeasure1} {strIngredient1}
-            </li>
-          )}
-          {strIngredient2 && (
-            <li>
-              {strMeasure2} {strIngredient2}
-            </li>
-          )}
-          {strIngredient3 && (
-            <li>
-              {strMeasure3} {strIngredient3}
-            </li>
-          )}
-          {strIngredient4 && (
-            <li>
-              {strMeasure4} {strIngredient4}
-            </li>
-          )}
-          {strIngredient5 && (
-            <li>
-              {strMeasure5} {strIngredient5}
-            </li>
-          )}
-          {strIngredient6 && (
-            <li>
-              {strMeasure6} {strIngredient6}
-            </li>
-          )}
-        </ul>
+          <IngredientsList>
+            <strong>Ingredients:</strong>
+            <ul style={{ display: "flex", flexDirection: "column" }}>
+              {strIngredient1 && (
+                <li>
+                  {strMeasure1} {strIngredient1}
+                </li>
+              )}
+              {strIngredient2 && (
+                <li>
+                  {strMeasure2} {strIngredient2}
+                </li>
+              )}
+              {strIngredient3 && (
+                <li>
+                  {strMeasure3} {strIngredient3}
+                </li>
+              )}
+              {strIngredient4 && (
+                <li>
+                  {strMeasure4} {strIngredient4}
+                </li>
+              )}
+              {strIngredient5 && (
+                <li>
+                  {strMeasure5} {strIngredient5}
+                </li>
+              )}
+              {strIngredient6 && (
+                <li>
+                  {strMeasure6} {strIngredient6}
+                </li>
+              )}
+            </ul>
+          </IngredientsList>
+          <InstructionStyle>
+            <strong>Instruction:</strong>
+            <br />
+            {strInstructions}
+          </InstructionStyle>
+        </Container>
+
         <Form idDrink={idDrink} />
-
         <StyledName>
           <p>{strDrink}</p>
         </StyledName>
@@ -90,7 +100,7 @@ export default function Cocktail({ drinks }) {
           <svg
             stroke="currentColor"
             fill="black"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 24 24"
             height="1em"
             width="1em"
@@ -106,15 +116,18 @@ export default function Cocktail({ drinks }) {
 }
 const ImageStyle = styled.div`
   display: flex;
-  align-items: center;
-  margin: 75px 10px 20px;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 75px -10px 0px;
+  margin-top: 25px;
+
   & img {
     border-radius: 20%;
     padding: 20px;
   }
 `;
 
-const Background = styled.p`
+const Background = styled.div`
   background-image: url("/color.jpg");
   background-position: center;
   background-size: cover;
@@ -147,4 +160,34 @@ const StyledBackButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const IngredientsList = styled.ul`
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  position: absolute;
+  top: 17px;
+  left: 0;
+  margin: 75px 0 0 20px;
+  margin-top: 90;
+  padding: 15px;
+
+  & li {
+    margin-top: 10px;
+    margin-left: -40px;
+    list-style-type: none;
+  }
+`;
+
+const InstructionStyle = styled.div`
+  padding: 15px;
+  margin-top: 40px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 75px 10px;
 `;
