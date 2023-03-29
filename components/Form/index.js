@@ -17,6 +17,11 @@ export default function Form({ idDrink }) {
     setFormList([...forms, formData]);
     event.target.reset();
     event.target.elements.name.focus();
+    const nameRegex = /^[a-zA-Z]+$/;
+    if (!nameRegex.test(name)) {
+      alert("Please enter a valid name (letters only).");
+      return;
+    }
   };
 
   //useEffect damit der neue Zustand erhalten bleibt nach einem reload.
@@ -34,7 +39,7 @@ export default function Form({ idDrink }) {
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <form autocomplete="off" onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="name">Name:</label>
           <input

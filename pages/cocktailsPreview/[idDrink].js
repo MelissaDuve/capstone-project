@@ -168,8 +168,7 @@ const IngredientsList = styled.ul`
   flex-direction: column;
   position: absolute;
   top: 17px;
-  left: 0;
-  margin: 75px 0 0 20px;
+  margin: 75px 0 0 5px;
   margin-top: 90;
   padding: 15px;
 
