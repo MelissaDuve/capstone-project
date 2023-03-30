@@ -39,7 +39,7 @@ export default function Form({ idDrink }) {
 
   return (
     <Container>
-      <form autocomplete="off" onSubmit={handleSubmit}>
+      <form autoComplete="off" onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="name">Name:</label>
           <input

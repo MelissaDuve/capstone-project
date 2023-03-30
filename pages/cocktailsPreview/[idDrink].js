@@ -131,6 +131,7 @@ const Background = styled.div`
   background-image: url("/color.jpg");
   background-position: center;
   background-size: cover;
+  position: absolute;
 `;
 const StyledName = styled.div`
   display: flex;
