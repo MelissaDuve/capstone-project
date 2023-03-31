@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <div>
       <Navbar>
-        <Link href="/">
+        <Link aria-label="link to homepage" href="/">
           <svg
             stroke="currentColor"
             fill="currentColor"
