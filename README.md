@@ -1,6 +1,6 @@
 # My Capstone Project: Shake it!
 
-Shake it! is a cocktail app where you can find simple recipes. For each drink there is a detail page where you can find the ingredients and instruction. You can also save your favorite cocktail. Have fun and happy mixing!
+Shake it! is a cocktail app where you can find simple recipes. For each drink there is a detail page where you can find the ingredients and instruction. You can also save your favorite cocktail. Have fun and happy shaking!
 
 ![App screens](/public/capstone_screen.png)
 
